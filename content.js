@@ -125,7 +125,7 @@ function createSummaryPopup() {
       <div style="text-align: center; color: #666; padding: 40px; padding-top: 80px;">
         <div style="font-size: 18px; margin-bottom: 15px;">ざっくり要約中...</div>
         <div style="height: 100px; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
-          <div class="chick-animation-v2" style="font-size: 50px;">🐥</div>
+          <div class="chick-animation-v2" style="font-size: 50px; font-family: 'Noto Color Emoji', 'Apple Color Emoji', sans-serif;">🐥</div>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "YouTube ざっくり要約",
-  "version": "2.1.0",
+  "name": "ざっくり要約ちゃん🐥",
+  "version": "2.2.0",
   "description": "YouTube動画をGPT-4o miniでざっくり要約 🐥",
   "permissions": [
     "activeTab",
@@ -24,7 +24,7 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "YouTubeざっくり要約 🐥"
+    "default_title": "ざっくり要約ちゃん🐥"
   },
   "icons": {
     "16": "icon-16.png",
