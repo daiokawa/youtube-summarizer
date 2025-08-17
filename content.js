@@ -10,7 +10,7 @@ function createSummarizeButton() {
   
   summarizeButton = document.createElement('button');
   summarizeButton.id = 'yt-summarize-btn-v2';
-  summarizeButton.innerHTML = '<span class="chick">🐥</span><span class="text">ざっくり</span>';
+  summarizeButton.textContent = 'ざっくり';
   summarizeButton.style.cssText = `
     position: fixed !important;
     bottom: 30px !important;
@@ -31,37 +31,15 @@ function createSummarizeButton() {
     gap: 8px !important;
   `;
   
-  // ヒヨコちゃんアニメーション用のスタイル
-  if (!document.getElementById('chick-animation-style-v2')) {
-    const style = document.createElement('style');
-    style.id = 'chick-animation-style-v2';
-    style.textContent = `
-      @keyframes chickHop {
-        0% { transform: translateX(0) translateY(0); }
-        25% { transform: translateX(3px) translateY(-5px); }
-        50% { transform: translateX(6px) translateY(0); }
-        75% { transform: translateX(3px) translateY(-5px); }
-        100% { transform: translateX(0) translateY(0); }
-      }
-      
-      #yt-summarize-btn-v2 .chick {
-        display: inline-block;
-        animation: chickHop 1.5s ease-in-out infinite;
-        font-size: 18px;
-      }
-      
-      #yt-summarize-btn-v2:hover {
-        transform: scale(1.05);
-      }
-      
-      #yt-summarize-btn-v2:hover .chick {
-        animation-duration: 0.5s;
-      }
-    `;
-    document.head.appendChild(style);
-  }
+  // ボタンのスタイル設定完了
   
-  // ホバーエフェクトはCSSで処理
+  // ホバーエフェクト
+  summarizeButton.onmouseover = () => {
+    summarizeButton.style.transform = 'scale(1.05)';
+  };
+  summarizeButton.onmouseout = () => {
+    summarizeButton.style.transform = 'scale(1)';
+  };
   
   summarizeButton.addEventListener('click', handleSummarizeClick);
   document.body.appendChild(summarizeButton);
@@ -91,62 +69,65 @@ function createSummaryPopup() {
     flex-direction: column !important;
   `;
   
+  // 既存のスタイルを削除
+  const existingStyle = document.getElementById('chick-bounce-style-v2');
+  if (existingStyle) {
+    existingStyle.remove();
+  }
+  
+  // 新しいスタイルを追加
+  const newStyle = document.createElement('style');
+  newStyle.id = 'chick-bounce-style-v2';
+  newStyle.textContent = `
+    @keyframes chickBounceV2 {
+      0% { 
+        transform: translateX(-30px) translateY(0);
+      }
+      12.5% {
+        transform: translateX(-15px) translateY(-25px);
+      }
+      25% {
+        transform: translateX(0) translateY(0);
+      }
+      37.5% {
+        transform: translateX(15px) translateY(-25px);
+      }
+      50% {
+        transform: translateX(30px) translateY(0);
+      }
+      62.5% {
+        transform: translateX(15px) translateY(-25px);
+      }
+      75% {
+        transform: translateX(0) translateY(0);
+      }
+      87.5% {
+        transform: translateX(-15px) translateY(-25px);
+      }
+      100% {
+        transform: translateX(-30px) translateY(0);
+      }
+    }
+    
+    .chick-animation-v2 {
+      animation: chickBounceV2 0.6s linear infinite !important;
+      display: inline-block;
+    }
+  `;
+  document.head.appendChild(newStyle);
+  
   summaryPopup.innerHTML = `
     <div id="popup-header-v2" style="background: #0078d4; color: white; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; cursor: move; user-select: none; border-bottom: 1px solid #005a9e;">
       <span style="font-weight: 600; font-size: 15px;">🐥 ざっくり要約ちゃん</span>
       <button id="close-popup-v2" style="background: rgba(255,255,255,0.2); border: none; color: white; font-size: 20px; cursor: pointer; width: 28px; height: 28px; border-radius: 4px; display: flex; align-items: center; justify-content: center;">×</button>
     </div>
     <div id="popup-content-v2" style="padding: 20px; flex: 1; overflow-y: auto; background: #f8f9fa; position: relative;">
-      <div style="text-align: center; color: #666; padding: 40px;">
+      <div style="text-align: center; color: #666; padding: 40px; padding-top: 80px;">
         <div style="font-size: 18px; margin-bottom: 15px;">ざっくり要約中...</div>
-        <div style="font-size: 40px; animation: bounce 2.5s ease-in-out infinite;">🐥</div>
+        <div style="height: 100px; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+          <div class="chick-animation-v2" style="font-size: 50px;">🐥</div>
+        </div>
       </div>
-      <style>
-        @keyframes bounce {
-          0% { 
-            transform: translateY(-20px) translateX(-20px);
-          }
-          8% {
-            transform: translateY(-20px) translateX(20px);
-          }
-          16% {
-            transform: translateY(20px) translateX(20px);
-          }
-          24% {
-            transform: translateY(-20px) translateX(-20px);
-          }
-          32% { 
-            transform: translateY(20px) translateX(-20px);
-          }
-          40% {
-            transform: translateY(-20px) translateX(20px);
-          }
-          48% {
-            transform: translateY(0) translateX(0);
-          }
-          56% {
-            transform: translateY(20px) translateX(20px);
-          }
-          64% {
-            transform: translateY(20px) translateX(-20px);
-          }
-          72% {
-            transform: translateY(-20px) translateX(-20px);
-          }
-          80% {
-            transform: translateY(0) translateX(20px);
-          }
-          88% {
-            transform: translateY(20px) translateX(0);
-          }
-          96% {
-            transform: translateY(-20px) translateX(20px);
-          }
-          100% {
-            transform: translateY(-20px) translateX(-20px);
-          }
-        }
-      </style>
     </div>
     <div id="action-buttons-v2" style="display: none; position: absolute; bottom: 20px; right: 40px; gap: 8px; z-index: 100001;">
       <button id="print-summary-v2" style="background: #0078d4; color: white; border: 1px solid #005a9e; padding: 5px 14px; border-radius: 3px; font-size: 13px; font-weight: normal; cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,0.15); transition: all 0.1s; margin-right: 8px; font-family: 'Segoe UI', sans-serif;">印刷</button>
@@ -223,7 +204,7 @@ async function handleSummarizeClick() {
     summarizeButton.disabled = true;
     summarizeButton.style.opacity = '0.6';
     summarizeButton.style.cursor = 'not-allowed';
-    summarizeButton.innerHTML = '<span class="chick">🐥</span><span class="text">処理中...</span>';
+    summarizeButton.textContent = '処理中...';
   }
   
   createSummaryPopup();
@@ -398,7 +379,7 @@ function resetButton() {
     summarizeButton.disabled = false;
     summarizeButton.style.opacity = '1';
     summarizeButton.style.cursor = 'pointer';
-    summarizeButton.innerHTML = '<span class="chick">🐥</span><span class="text">ざっくり</span>';
+    summarizeButton.textContent = 'ざっくり';
   }
 }
 
