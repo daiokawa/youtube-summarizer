@@ -1,0 +1,23 @@
+<svg width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Purple gradient background circle -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="64" fill="url(#bg)" />
+  
+  <!-- Yellow chick circle -->
+  <circle cx="64" cy="64" r="35" fill="#FFD93D" />
+  
+  <!-- Eyes -->
+  <circle cx="52" cy="60" r="4" fill="#333" />
+  <circle cx="76" cy="60" r="4" fill="#333" />
+  
+  <!-- Beak -->
+  <path d="M 64 68 L 58 72 L 64 74 L 70 72 Z" fill="#FF9F40" />
+  
+  <!-- Small crest -->
+  <path d="M 60 38 L 62 33 L 64 38 L 66 33 L 68 38" stroke="#FF6B6B" stroke-width="3" fill="none" stroke-linecap="round" />
+</svg>
