@@ -1,0 +1,55 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景の円 -->
+  <circle cx="64" cy="64" r="60" fill="url(#gradient)" />
+  
+  <!-- グラデーション定義 -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="chickGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff3b8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffdb4d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- ヒヨコの体 -->
+  <ellipse cx="64" cy="70" rx="28" ry="30" fill="url(#chickGradient)" />
+  
+  <!-- ヒヨコの頭 -->
+  <circle cx="64" cy="48" r="22" fill="url(#chickGradient)" />
+  
+  <!-- とさか -->
+  <path d="M 58 35 Q 60 30, 62 35 Q 64 30, 66 35 Q 68 30, 70 35" 
+        stroke="#ff6b6b" stroke-width="2" fill="none" stroke-linecap="round" />
+  
+  <!-- 左目 -->
+  <circle cx="56" cy="48" r="3" fill="#333" />
+  <circle cx="57" cy="47" r="1" fill="white" />
+  
+  <!-- 右目 -->
+  <circle cx="72" cy="48" r="3" fill="#333" />
+  <circle cx="73" cy="47" r="1" fill="white" />
+  
+  <!-- くちばし -->
+  <path d="M 64 52 L 60 55 L 64 56 L 68 55 Z" fill="#ff9f40" />
+  
+  <!-- 左羽 -->
+  <ellipse cx="42" cy="68" rx="8" ry="12" fill="#ffdb4d" transform="rotate(-20 42 68)" />
+  
+  <!-- 右羽 -->
+  <ellipse cx="86" cy="68" rx="8" ry="12" fill="#ffdb4d" transform="rotate(20 86 68)" />
+  
+  <!-- 左足 -->
+  <line x1="56" y1="90" x2="56" y2="98" stroke="#ff9f40" stroke-width="3" stroke-linecap="round" />
+  <path d="M 52 98 L 56 98 L 60 98" stroke="#ff9f40" stroke-width="2" stroke-linecap="round" fill="none" />
+  
+  <!-- 右足 -->
+  <line x1="72" y1="90" x2="72" y2="98" stroke="#ff9f40" stroke-width="3" stroke-linecap="round" />
+  <path d="M 68 98 L 72 98 L 76 98" stroke="#ff9f40" stroke-width="2" stroke-linecap="round" fill="none" />
+  
+  <!-- ほっぺ -->
+  <circle cx="48" cy="52" r="4" fill="#ff9f9f" opacity="0.5" />
+  <circle cx="80" cy="52" r="4" fill="#ff9f9f" opacity="0.5" />
+</svg>
